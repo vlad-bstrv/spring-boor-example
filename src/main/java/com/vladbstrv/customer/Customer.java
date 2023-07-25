@@ -1,19 +1,41 @@
 package com.vladbstrv.customer;
 
-import com.vladbstrv.Main;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
+@Entity
+@Table(name = "customer")
 public class Customer {
+
+    @Id
+    @Column(name = "id")
+    @SequenceGenerator(
+            name = "customer_id_sequence",
+            sequenceName = "customer_id_sequence"
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "custom_id_sequence"
+    )
     private Integer id;
+    @Column(name = "name", nullable = false)
     private String name;
+    @Column(name = "email", nullable = false)
     private String email;
+    @Column(name = "age", nullable = false)
     private Integer age;
 
     public Customer() {}
 
     public Customer(Integer id, String name, String email, Integer age) {
         this.id = id;
+        this.name = name;
+        this.email = email;
+        this.age = age;
+    }
+
+    public Customer(String name, String email, Integer age) {
         this.name = name;
         this.email = email;
         this.age = age;
