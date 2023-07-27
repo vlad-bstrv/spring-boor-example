@@ -28,7 +28,7 @@ public class CustomerJDBCDataAccessService implements CustomerDao{
     }
 
     @Override
-    public Optional<Customer> selectCustomerById(Integer id) {
+    public Optional<Customer> selectCustomerById(Long id) {
         var sql = """
                 SELECT id, name, email, age
                 FROM customer
@@ -67,7 +67,7 @@ public class CustomerJDBCDataAccessService implements CustomerDao{
     }
 
     @Override
-    public boolean existsPersonWithId(Integer customerId) {
+    public boolean existsPersonWithId(Long customerId) {
         var sql = """
                 SELECT count(id)
                 FROM customer
@@ -78,7 +78,7 @@ public class CustomerJDBCDataAccessService implements CustomerDao{
     }
 
     @Override
-    public void deleteCustomerById(Integer customerId) {
+    public void deleteCustomerById(Long customerId) {
         var sql = """
                 DELETE 
                 FROM customer
