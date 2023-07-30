@@ -9,8 +9,8 @@ public interface CustomerDao {
     List<Customer> selectAllCustomers();
     Optional<Customer> selectCustomerById(Long id);
     void insertCustomer(Customer customer);
-    boolean existsPersonWithEmail(String email);
-    boolean existsPersonWithId(Long customerId);
+    boolean existsCustomerWithEmail(String email);
+    boolean existsCustomerWithId(Long customerId);
     void deleteCustomerById(Long customerId);
     void updateCustomer(Customer customer);
 }
